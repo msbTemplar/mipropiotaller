@@ -13,10 +13,18 @@ from django.template.loader import render_to_string # Permite renderizar plantil
 from .forms import TestimonialForm
 from django.db.models import Sum
 from django.utils import timezone
+from django.http import JsonResponse
 
 # Create your views here.
 
 
+def privacy_policy(request):
+    return render(request, 'cars_repairs_app/privacy_policy.html')
+
+def set_cookie_consent(request):
+    response = JsonResponse({'status': 'ok'})
+    response.set_cookie('cookie_consent', 'true', max_age=365*24*60*60)  # 1 año
+    return response
 
 
 def home(request):

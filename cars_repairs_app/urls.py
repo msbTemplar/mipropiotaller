@@ -15,6 +15,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', views.custom_logout_view, name='logout'),
     path('contact_page/', views.contact_view, name='contact_page'),
-    
+    path('set_cookie_consent/', views.set_cookie_consent, name='set_cookie_consent'),
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     
 ]
