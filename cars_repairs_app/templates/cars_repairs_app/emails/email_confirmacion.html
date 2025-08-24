@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmación de Reserva</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .header { background-color: #007bff; color: #fff; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { padding: 20px; line-height: 1.6; }
+        .footer { text-align: center; padding: 20px; font-size: 12px; color: #777; border-top: 1px solid #eee; }
+        .button { display: inline-block; padding: 10px 20px; margin-top: 15px; background-color: #28a745; color: #fff; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>¡Reserva Confirmada!</h2>
+        </div>
+        <div class="content">
+            <p>Hola **{{ nombre }}**,</p>
+            <p>Hemos recibido tu solicitud de reserva para el servicio de **{{ servicio.titulo_pestaña }}**. A continuación, los detalles de tu cita:</p>
+            <ul>
+                <li>**Servicio:** {{ servicio.titulo_pestaña }}</li>
+                <li>**Fecha:** {{ fecha_servicio }}</li>
+                <li>**Solicitud Especial:** {{ solicitud_especial|default:"Ninguna" }}</li>
+            </ul>
+            <p>Te contactaremos pronto para confirmar los detalles finales y la hora exacta.</p>
+            <a href="URL_A_TU_PAGINA" class="button">Ver más servicios</a>
+        </div>
+        <div class="footer">
+            <p>&copy; {% now "Y" %} Tu Negocio. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

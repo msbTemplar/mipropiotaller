@@ -1,0 +1,78 @@
+{% load static %}
+
+
+
+<!-- Testimonial Start -->
+    <!-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="text-primary text-uppercase">// Testimonial //</h6>
+                <h1 class="mb-5">Our Clients Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'cars_repairs_app/img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'cars_repairs_app/img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'cars_repairs_app/img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'cars_repairs_app/img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Testimonial End -->
+
+
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="text-primary text-uppercase">// Testimonial //</h6>
+            <h1 class="mb-5">Our Clients Say!</h1>
+            <a href="{% url 'testimonial' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Dejarnos vuestra Opinión<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            {% for testimonio in testimonios %}
+            <div class="testimonial-item text-center">
+                {% if testimonio.imagen %}
+                <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{{ testimonio.imagen.url }}" style="width: 80px; height: 80px;">
+                {% else %}
+                <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'cars_repairs_app/img/testimonial-default.jpg' %}" style="width: 80px; height: 80px;">
+                {% endif %}
+                <h5 class="mb-0">{{ testimonio.autor }}</h5>
+                <p>{{ testimonio.profesion }}</p>
+                <p>{{ testimonio.servicio.titulo_pestaña }}</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">{{ testimonio.texto }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Aún no hay testimonios. ¡Sé el primero en opinar!</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>

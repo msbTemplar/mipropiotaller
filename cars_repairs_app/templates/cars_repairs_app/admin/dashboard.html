@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+<div id="content-main">
+    <h1>Panel de Control del Taller</h1>
+    <div class="module">
+        <h2>Reporte Mensual</h2>
+        <p>Ingresos de este mes: <strong>{{ ingresos_mes_actual }} €</strong></p>
+    </div>
+</div>
+{% endblock %}

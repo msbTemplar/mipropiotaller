@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 20px auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background-color: #dc3545; color: #fff; padding: 20px; text-align: center; font-size: 24px; }
+        .content { padding: 20px; line-height: 1.6; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            ¡Nueva Reserva Recibida!
+        </div>
+        <div class="content">
+            <p>Se ha recibido una nueva solicitud de reserva. A continuación se detallan los datos del cliente y del servicio solicitado:</p>
+            <table>
+                <tr>
+                    <th>Campo</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td><strong>Nombre:</strong></td>
+                    <td>{{ nombre }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td><a href="mailto:{{ email }}">{{ email }}</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Teléfono:</strong></td>
+                    <td>{{ phone }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Servicio:</strong></td>
+                    <td>{{ servicio.titulo_pestaña }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Fecha:</strong></td>
+                    <td>{{ fecha_servicio }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Solicitud Especial:</strong></td>
+                    <td>{{ solicitud_especial|default:"Ninguna" }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
